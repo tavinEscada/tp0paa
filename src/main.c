@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 int leituraNumero(){
-    printf("escolha o número de asteriscos (de 1 a 100): ");
+    printf("escolha o número de figuras (de 1 a 100): ");
     int n;
     scanf("%d", &n);
 
@@ -44,133 +44,136 @@ void imprimeMatriz(char caracteres[20][80]){
     }
 }
 
-void asteriscoSimples(char caracteres[20][80], int n){
+void asteriscoSimples(char caracteres[20][80]){
     
     int linha;
     int coluna;
 
-    for(int i = 0; i < n; i++){
-        do{
-            linha = rand() % (18 - 1 + 1) + 1;
-            coluna = rand() % (78 - 1 + 1) + 1;
-        }while(caracteres[linha][coluna] == '*');
+    do{
+        linha = (rand() % 18) + 1;
+        coluna = (rand() % 78) + 1;
+    }while(caracteres[linha][coluna] == '*');
 
-        caracteres[linha][coluna] = '*';
-    }
+    caracteres[linha][coluna] = '*';
+    
     
 }
 
-void soma(char caracteres[20][80], int n){
+void soma(char caracteres[20][80]){
     int linha;
     int coluna;
 
-    for(int i = 0; i < n; i++){
-        do{
-            linha = (rand() % 16) + 2;
-            coluna = (rand() % 76) + 2;
+    do{
+        linha = (rand() % 16) + 2;
+        coluna = (rand() % 76) + 2;
 
-            //condicoes para que as posicoes nao se repitam
-            if(caracteres[linha][coluna] == '*'){
-                continue;
-            }
+        //condicoes para que as posicoes nao se repitam
+        if(caracteres[linha][coluna] == '*'){
+            continue;
+        }
 
-            if(caracteres[linha + 1][coluna] == '*' || caracteres[linha - 1][coluna] == '*'){
-                continue;
-            }
+        if(caracteres[linha + 1][coluna] == '*' || caracteres[linha - 1][coluna] == '*'){
+            continue;
+        }
 
-            if(caracteres[linha][coluna + 1] == '*' || caracteres[linha][coluna - 1] == '*'){
-                continue;
-            }
+        if(caracteres[linha][coluna + 1] == '*' || caracteres[linha][coluna - 1] == '*'){
+            continue;
+        }
 
-            //condicoes para que as figuras nao se misturem
-            if(caracteres[linha + 1][coluna + 1] == '*' || caracteres[linha + 1][coluna - 1] == '*'){
-                continue;
-            }
+        //condicoes para que as figuras nao se misturem
+        if(caracteres[linha + 1][coluna + 1] == '*' || caracteres[linha + 1][coluna - 1] == '*'){
+            continue;
+        }
 
-            if(caracteres[linha - 1][coluna - 1] == '*' || caracteres[linha - 1][coluna + 1] == '*'){
-                continue;
-            }
+        if(caracteres[linha - 1][coluna - 1] == '*' || caracteres[linha - 1][coluna + 1] == '*'){
+            continue;
+        }
 
-            break;
-        }while(1);
+        break;
+    }while(1);
 
-        caracteres[linha][coluna] = '*';
-        caracteres[linha+1][coluna] = '*';
-        caracteres[linha-1][coluna] = '*';
-        caracteres[linha][coluna + 1] = '*';
-        caracteres[linha][coluna - 1] = '*';
-    }
+    caracteres[linha][coluna] = '*';
+    caracteres[linha+1][coluna] = '*';
+    caracteres[linha-1][coluna] = '*';
+    caracteres[linha][coluna + 1] = '*';
+    caracteres[linha][coluna - 1] = '*';
 }
 
-void x(char caracteres[20][80], int n){
+
+void x(char caracteres[20][80]){
     int linha;
     int coluna;
 
-    for(int i = 0; i < n; i++){
-        do{
-            linha = (rand() % 16) + 2;
-            coluna = (rand() % 76) + 2;
+    do{
+        linha = (rand() % 16) + 2;
+        coluna = (rand() % 76) + 2;
 
-            //condicoes para que os asteriscos nao se repitam
-            if(caracteres[linha][coluna] == '*'){
-                continue;
-            }
+        //condicoes para que os asteriscos nao se repitam
+        if(caracteres[linha][coluna] == '*'){
+            continue;
+        }
 
-            if(caracteres[linha + 1][coluna + 1] == '*' || caracteres[linha + 1][coluna - 1] == '*'){
-                continue;
-            }
+        if(caracteres[linha + 1][coluna + 1] == '*' || caracteres[linha + 1][coluna - 1] == '*'){
+            continue;
+        }
 
-            if(caracteres[linha - 1][coluna - 1] == '*' || caracteres[linha - 1][coluna + 1] == '*'){
-                continue;
-            }
+        if(caracteres[linha - 1][coluna - 1] == '*' || caracteres[linha - 1][coluna + 1] == '*'){
+            continue;
+        }
 
-            //condocoes para que as figuras nao se misturem
-            if(caracteres[linha + 1][coluna] == '*' || caracteres[linha - 1][coluna] == '*'){
-                continue;
-            }
+        //condocoes para que as figuras nao se misturem
+        if(caracteres[linha + 1][coluna] == '*' || caracteres[linha - 1][coluna] == '*'){
+            continue;
+        }
 
-            if(caracteres[linha][coluna + 1] == '*' || caracteres[linha][coluna - 1] == '*'){
-                continue;
-            }
+        if(caracteres[linha][coluna + 1] == '*' || caracteres[linha][coluna - 1] == '*'){
+            continue;
+        }
 
-            break;
-        }while(1);
+        break;
+    }while(1);
 
-        caracteres[linha][coluna] = '*';
-        caracteres[linha+1][coluna+1] = '*';
-        caracteres[linha+1][coluna-1] = '*';
-        caracteres[linha-1][coluna + 1] = '*';
-        caracteres[linha-1][coluna - 1] = '*';
-    }
+    caracteres[linha][coluna] = '*';
+    caracteres[linha+1][coluna+1] = '*';
+    caracteres[linha+1][coluna-1] = '*';
+    caracteres[linha-1][coluna + 1] = '*';
+    caracteres[linha-1][coluna - 1] = '*';
+    
 }
 
 void aleatorio(char caracteres[20][80], int n){
     
-
     for(int i = 0; i < n; i++){
-        int nFigura = rand() % 2;
+        int nFigura = rand() % 3;
         switch(nFigura){
             case 0:
-                
+                asteriscoSimples(caracteres);
                 break;
             
+            case 1:
+                soma(caracteres);
+                break;
+
+            case 2:
+                x(caracteres);
+                break;
+
             default:
                 break;
         }
     }
 
-
 }
 
-
+void especial(char caracteres[20][80]){
+    
+}
 
 int main(){
 
     char caracteres[20][80];
 
     criaMatrizVazia(caracteres);
-
-
 
     printf("PROGRAMA GERADOR DE OBRA DE ARTE:\n");
     printf("=================================\n");
@@ -185,26 +188,35 @@ int main(){
         case 1:
             n = leituraNumero();
 
-            asteriscoSimples(caracteres, n);
+            for(int i = 0; i < n; i++) asteriscoSimples(caracteres);
+
             break;
 
         case 2:
             n = leituraNumero();
-            soma(caracteres, n);
+
+            for(int i = 0; i < n; i++) soma(caracteres);
+
             break;
 
         case 3:
             n = leituraNumero();
-            x(caracteres, n);
+
+            for(int i = 0; i < n; i++) x(caracteres);
+            
             break;
 
         case 4:
             n = leituraNumero();
+
             aleatorio(caracteres, n);
             break;
 
         case 5:
-            //especial();
+
+            n = leituraNumero();
+
+            for(int i = 0; i < n; i++) especial(caracteres);
             break;
 
         default:
@@ -213,11 +225,5 @@ int main(){
     }
 
     imprimeMatriz(caracteres);
-
-
-
-
-
-  
 
 }
