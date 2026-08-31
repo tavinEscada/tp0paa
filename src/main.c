@@ -2,11 +2,13 @@
 #include <stdio.h>
 
 int leituraNumero(){
-    printf("escolha o número de figuras (de 1 a 100): ");
+    printf("escolha a quantidade de figuras (de 1 a 100): ");
     int n;
     scanf("%d", &n);
 
     if(n > 100) n = 100;
+
+    if(n < 1) n = 1;
     
     return n;
 }
@@ -165,8 +167,100 @@ void aleatorio(char caracteres[20][80], int n){
 
 }
 
-void especial(char caracteres[20][80]){
+void campoFutebol(char caracteres[20][80], int n){
+    //área
+    for(int i = 1; i < 12; i++){
+        caracteres[6][i] = '-';
+        caracteres[14][i] = '-';
+    }
+    for(int i = 1; i < 25; i++){
+        caracteres[3][i] = '_';
+        caracteres[16][i] = '_';
+    }
+    for(int i = 7; i < 14; i++){
+        caracteres[i][11] = '|';
+    }
+    for(int i = 4; i < 17; i++){
+        caracteres[i][25] = '|';
+    }
+
+    //penalti
+    caracteres[10][18] = '*';
+
+    //meia lua
+    caracteres[6][26] = '*';
+    caracteres[7][28] = '*';
+    caracteres[8][29] = '*';
+    caracteres[9][30] = '*';
+    caracteres[10][30] = '*';
+    caracteres[11][30] = '*';
+    caracteres[12][29] = '*';
+    caracteres[13][28] = '*';
+    caracteres[14][26] = '*';
+
+    //meio campo
+    caracteres[5][78] = '*';
+    caracteres[6][75] = '*';
+    caracteres[7][73] = '*';
+    caracteres[8][72] = '*';
+    caracteres[9][71] = '*';
+    caracteres[10][70] = '*';//
+    caracteres[11][71] = '*';
+    caracteres[12][72] = '*';
+    caracteres[13][73] = '*';
+    caracteres[14][75] = '*';
+    caracteres[15][78] = '*';
+
     
+
+}
+
+void f442(){
+
+}
+
+void especial(char caracteres[20][80]){
+    int n = leituraNumero();
+
+    criaMatrizVazia(caracteres);
+
+    if(n <= 20){
+        //basquete
+
+    }
+
+    if(n > 20 && n <= 40){
+        //volei
+
+    }
+    if(n > 40 && n <= 60){
+        //fut americano
+
+    }else{
+        campoFutebol(caracteres, n);
+    }
+}
+
+void desenhaCampo(char caracteres[20][80], int n){
+    criaMatrizVazia(caracteres);
+
+    if(n <= 20){
+        //basquete
+
+    }
+
+    if(n > 20 && n <= 40){
+        //volei
+
+    }
+    if(n > 40 && n <= 60){
+        //fut americano
+
+    }else{
+        //futebol
+    }
+        
+
 }
 
 int main(){
@@ -214,9 +308,10 @@ int main(){
 
         case 5:
 
-            n = leituraNumero();
+            //n = leituraNumero();
 
-            for(int i = 0; i < n; i++) especial(caracteres);
+            //for(int i = 0; i < n; i++) especial(caracteres);
+            especial(caracteres);
             break;
 
         default:
