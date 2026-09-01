@@ -170,9 +170,9 @@ void aleatorio(char caracteres[20][80], int n){
 }
 
 void linhaDe4(char caracteres[20][80]){
-    caracteres[2][18] = '(';
-    caracteres[2][19] = '6';
-    caracteres[2][20] = ')';
+    caracteres[2][20] = '(';
+    caracteres[2][21] = '6';
+    caracteres[2][22] = ')';
 
     caracteres[7][14] = '(';
     caracteres[7][15] = '4';
@@ -182,9 +182,9 @@ void linhaDe4(char caracteres[20][80]){
     caracteres[13][15] = '3';
     caracteres[13][16] = ')';
 
-    caracteres[18][18] = '(';
-    caracteres[18][19] = '2';
-    caracteres[18][20] = ')';
+    caracteres[18][20] = '(';
+    caracteres[18][21] = '2';
+    caracteres[18][22] = ')';
 }
 
 void linhaDe3(char caracteres[20][80]){
@@ -203,13 +203,13 @@ void linhaDe3(char caracteres[20][80]){
 }
 
 void doisVolantes(char caracteres[20][80]){
-    caracteres[8][36] = '(';
-    caracteres[8][37] = '5';
-    caracteres[8][38] = ')';
+    caracteres[7][36] = '(';
+    caracteres[7][37] = '5';
+    caracteres[7][38] = ')';
 
-    caracteres[12][36] = '(';
-    caracteres[12][37] = '8';
-    caracteres[12][38] = ')';
+    caracteres[13][36] = '(';
+    caracteres[13][37] = '8';
+    caracteres[13][38] = ')';
 }
 
 void umVolante(char caracteres[20][80]){
@@ -220,14 +220,14 @@ void umVolante(char caracteres[20][80]){
 }
 
 void alas(char caracteres[20][80]){
-    caracteres[2][47] = '(';
-    caracteres[2][48] = '7';
-    caracteres[2][49] = ')';
+    caracteres[2][44] = '(';
+    caracteres[2][45] = '7';
+    caracteres[2][46] = ')';
 
-    caracteres[17][46] = '(';
-    caracteres[17][47] = '1';
-    caracteres[17][48] = '1';
-    caracteres[17][49] = ')';
+    caracteres[17][43] = '(';
+    caracteres[17][44] = '1';
+    caracteres[17][45] = '1';
+    caracteres[17][46] = ')';
 }
 
 void cincoMeias(char caracteres[20][80]){
@@ -236,13 +236,13 @@ void cincoMeias(char caracteres[20][80]){
 
     alas(caracteres);
 
-    caracteres[6][43] = '(';
-    caracteres[6][44] = '6';
-    caracteres[6][45] = ')';
+    caracteres[6][39] = '(';
+    caracteres[6][40] = '6';
+    caracteres[6][41] = ')';
 
-    caracteres[14][43] = '(';
-    caracteres[14][44] = '8';
-    caracteres[14][45] = ')';
+    caracteres[14][39] = '(';
+    caracteres[14][40] = '8';
+    caracteres[14][41] = ')';
 
 }
 
@@ -264,15 +264,15 @@ void doisAtacantes(char caracteres[20][80]){
 }
 
 void pontas(char caracteres[20][80]){
-    caracteres[17][60] = '(';
-    caracteres[17][61] = '1';
-    caracteres[17][62] = '0';
-    caracteres[17][63] = ')';
+    caracteres[17][62] = '(';
+    caracteres[17][63] = '1';
+    caracteres[17][64] = '0';
+    caracteres[17][65] = ')';
 
-    caracteres[3][60] = '(';
-    caracteres[3][61] = '1';
-    caracteres[3][62] = '1';
-    caracteres[3][63] = ')';
+    caracteres[3][62] = '(';
+    caracteres[3][63] = '1';
+    caracteres[3][64] = '1';
+    caracteres[3][65] = ')';
 }
 
 void tresAtacantes(char caracteres[20][80]){
@@ -283,6 +283,7 @@ void tresAtacantes(char caracteres[20][80]){
 }
 
 void f442(char caracteres[20][80]){
+    printf("==Formação 4-4-2==\n");
     linhaDe4(caracteres);
 
     doisVolantes(caracteres);
@@ -306,24 +307,24 @@ void f442(char caracteres[20][80]){
 }
 
 void f433(char caracteres[20][80]){
-    
+    printf("==Formação 4-3-3==\n");
     linhaDe4(caracteres);
 
     umVolante(caracteres);
 
-    caracteres[13][42] = '(';
-    caracteres[13][43] = '7';
-    caracteres[13][44] = ')';
+    caracteres[14][42] = '(';
+    caracteres[14][43] = '7';
+    caracteres[14][44] = ')';
 
-    caracteres[7][42] = '(';
-    caracteres[7][43] = '8';
-    caracteres[7][44] = ')';
+    caracteres[6][42] = '(';
+    caracteres[6][43] = '8';
+    caracteres[6][44] = ')';
 
     pontas(caracteres);
 
     artilheiro(caracteres);
 
-    char times[6][30] = {"Napoli de Sarri", "Brasil de 1962", "Liverpool de Klopp", 
+    char times[5][30] = {"Napoli de Sarri", "Brasil de 1962", "Liverpool de Klopp", 
         "Holanda de 1970", "Barcelona de Guardiola"};
 
     imprimeMatriz(caracteres);
@@ -337,6 +338,8 @@ void f433(char caracteres[20][80]){
 }
 
 void f4231(char caracteres[20][80]){
+
+    printf("==Formação 4-2-3-1==\n");
     linhaDe4(caracteres);
 
     doisVolantes(caracteres);
@@ -357,7 +360,7 @@ void f4231(char caracteres[20][80]){
 
     artilheiro(caracteres);
 
-    char times[6][30] = {"Arsenal de Arsene Wenger", "Alemanha de 2014", "Corinthians de Tite", 
+    char times[5][30] = {"Arsenal de Arsene Wenger", "Alemanha de 2014", "Corinthians de Tite", 
         "Espanha de 2010", "Real Madrid dos galácticos"};
 
     imprimeMatriz(caracteres);
@@ -371,13 +374,15 @@ void f4231(char caracteres[20][80]){
 
 void f352(char caracteres[20][80]){
 
+    printf("==Formação 3-5-2==\n");
+
     linhaDe3(caracteres);
 
     cincoMeias(caracteres);
 
     doisAtacantes(caracteres);
 
-    char times[6][30] = {"Alemanha de 1996", "Juventus de Conte", "Inter de Milão de Mourinho", 
+    char times[4][30] = {"Alemanha de 1996", "Juventus de Conte", "Inter de Milão de Mourinho", 
         "Tottenham de Pochettino"};
 
     imprimeMatriz(caracteres);
@@ -391,12 +396,14 @@ void f352(char caracteres[20][80]){
 
 void f451(char caracteres[20][80]){
 
+    printf("==Formação 4-5-1==\n");
+
     linhaDe4(caracteres);
     cincoMeias(caracteres);
     artilheiro(caracteres);
 
-    char times[6][30] = {"", "", "", 
-        ""};
+    char times[4][30] = {"Chelsea de Mourinho", "Napoli de Gattuso", "Grécia de 2004", 
+        "Bayern de Ancelotti"};
 
     imprimeMatriz(caracteres);
 
@@ -409,6 +416,8 @@ void f451(char caracteres[20][80]){
 
 void f343(char caracteres[20][80]){
     
+    printf("==Formação 3-4-3==\n");
+
     linhaDe3(caracteres);
 
     doisVolantes(caracteres);
@@ -418,10 +427,9 @@ void f343(char caracteres[20][80]){
     tresAtacantes(caracteres);
 
     
-    char times[6][30] = {"", "", "", 
-        ""};
+    char times[6][30] = {"Chelsea de Conte", "Juventus de Allegri", "Borussia Dortmund de Tuchel", 
+        "Inglaterra de Southgate"};
     
-
     imprimeMatriz(caracteres);
 
     printf("Exemplo de time que usou: ");
@@ -430,8 +438,6 @@ void f343(char caracteres[20][80]){
 
     printf("%s\n", times[ex]);
 }
-
-
 
 void campoFutebol(char caracteres[20][80], int n){
     //área
@@ -484,12 +490,12 @@ void campoFutebol(char caracteres[20][80], int n){
     caracteres[10][6] = '1';
     caracteres[10][7] = ')';
 
-    //int formacao = (a * n + b) % 7;
-    int formacao = 5;
+    int formacao = (a * n + b) % 6;
+    //int formacao = 5;
 
     switch(formacao){
         case 0:
-            //formacao 4-4-2
+            
             f442(caracteres);
             break;
 
@@ -514,26 +520,25 @@ void campoFutebol(char caracteres[20][80], int n){
             break;
     }
     
-
 }
 
-void especial(char caracteres[20][80]){
-    int n = leituraNumero();
+
+
+void quadraVolei(char caracteres[20][80], int n){
+    for(int i = 1; i < 19; i++){
+        caracteres[i][52] = '|';
+    }
+
+    imprimeMatriz(caracteres);
+}
+
+void especial(char caracteres[20][80], int n){
 
     criaMatrizVazia(caracteres);
 
-    if(n <= 20){
-        //basquete
-
-    }
-
-    if(n > 20 && n <= 40){
+    if(n <= 40){
         //volei
-
-    }
-    if(n > 40 && n <= 60){
-        //fut americano
-
+        quadraVolei(caracteres, n);
     }else{
         campoFutebol(caracteres, n);
     }
@@ -553,13 +558,12 @@ int main(){
     int op;
     scanf("%d", &op);
 
-    int n;
+    int n = leituraNumero();
 
     srand(time(NULL));
 
     switch(op){
         case 1:
-            n = leituraNumero();
 
             for(int i = 0; i < n; i++) asteriscoSimples(caracteres);
             imprimeMatriz(caracteres);
@@ -567,7 +571,6 @@ int main(){
             break;
 
         case 2:
-            n = leituraNumero();
 
             for(int i = 0; i < n; i++) soma(caracteres);
             imprimeMatriz(caracteres);
@@ -575,7 +578,6 @@ int main(){
             break;
 
         case 3:
-            n = leituraNumero();
 
             for(int i = 0; i < n; i++) x(caracteres);
             imprimeMatriz(caracteres);
@@ -583,23 +585,15 @@ int main(){
             break;
 
         case 4:
-            n = leituraNumero();
 
             aleatorio(caracteres, n);
             imprimeMatriz(caracteres);
             break;
 
-        case 5:
-
-            //n = leituraNumero();
-
-            //for(int i = 0; i < n; i++) especial(caracteres);
-            especial(caracteres);
-            break;
-
         default:
-            printf("Entrada invalida");
 
+            especial(caracteres, n);
+            break;
     }
 
 }
