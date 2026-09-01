@@ -3,7 +3,7 @@
 #include <time.h>
 
 int leituraNumero(){
-    printf("escolha a quantidade de figuras (de 1 a 100): ");
+    printf("escolha o numero (de 1 a 100): ");
     int n;
     scanf("%d", &n);
 
@@ -59,7 +59,6 @@ void asteriscoSimples(char caracteres[20][80]){
 
     caracteres[linha][coluna] = '*';
     
-    
 }
 
 void soma(char caracteres[20][80]){
@@ -93,6 +92,7 @@ void soma(char caracteres[20][80]){
         }
 
         break;
+
     }while(1);
 
     caracteres[linha][coluna] = '*';
@@ -134,6 +134,7 @@ void x(char caracteres[20][80]){
         }
 
         break;
+
     }while(1);
 
     caracteres[linha][coluna] = '*';
@@ -186,26 +187,72 @@ void linhaDe4(char caracteres[20][80]){
     caracteres[18][20] = ')';
 }
 
-void f442(char caracteres[20][80]){
-    linhaDe4(caracteres);
+void linhaDe3(char caracteres[20][80]){
 
-    caracteres[8][41] = '(';
-    caracteres[8][42] = '5';
-    caracteres[8][43] = ')';
+    caracteres[6][17] = '(';
+    caracteres[6][18] = '3';
+    caracteres[6][19] = ')';
 
-    caracteres[12][41] = '(';
-    caracteres[12][42] = '8';
-    caracteres[12][43] = ')';
+    caracteres[10][14] = '(';
+    caracteres[10][15] = '2';
+    caracteres[10][16] = ')';
 
+    caracteres[14][17] = '(';
+    caracteres[14][18] = '4';
+    caracteres[14][19] = ')';
+}
+
+void doisVolantes(char caracteres[20][80]){
+    caracteres[8][36] = '(';
+    caracteres[8][37] = '5';
+    caracteres[8][38] = ')';
+
+    caracteres[12][36] = '(';
+    caracteres[12][37] = '8';
+    caracteres[12][38] = ')';
+}
+
+void umVolante(char caracteres[20][80]){
+    caracteres[10][35] = '(';
+    caracteres[10][36] = '5';
+    caracteres[10][37] = ')';
+
+}
+
+void alas(char caracteres[20][80]){
     caracteres[2][47] = '(';
     caracteres[2][48] = '7';
     caracteres[2][49] = ')';
 
-    caracteres[18][47] = '(';
-    caracteres[18][48] = '1';
-    caracteres[18][49] = '1';
-    caracteres[18][50] = ')';
+    caracteres[17][46] = '(';
+    caracteres[17][47] = '1';
+    caracteres[17][48] = '1';
+    caracteres[17][49] = ')';
+}
 
+void cincoMeias(char caracteres[20][80]){
+    
+    umVolante(caracteres);
+
+    alas(caracteres);
+
+    caracteres[6][43] = '(';
+    caracteres[6][44] = '6';
+    caracteres[6][45] = ')';
+
+    caracteres[14][43] = '(';
+    caracteres[14][44] = '8';
+    caracteres[14][45] = ')';
+
+}
+
+void artilheiro(char caracteres[20][80]){
+    caracteres[10][66] = '(';
+    caracteres[10][67] = '9';
+    caracteres[10][68] = ')';
+}
+
+void doisAtacantes(char caracteres[20][80]){
     caracteres[8][65] = '(';
     caracteres[8][66] = '9';
     caracteres[8][67] = ')';
@@ -214,9 +261,47 @@ void f442(char caracteres[20][80]){
     caracteres[12][66] = '1';
     caracteres[12][67] = '0';
     caracteres[12][68] = ')';
+}
 
+void pontas(char caracteres[20][80]){
+    caracteres[17][60] = '(';
+    caracteres[17][61] = '1';
+    caracteres[17][62] = '0';
+    caracteres[17][63] = ')';
+
+    caracteres[3][60] = '(';
+    caracteres[3][61] = '1';
+    caracteres[3][62] = '1';
+    caracteres[3][63] = ')';
+}
+
+void tresAtacantes(char caracteres[20][80]){
+
+    pontas(caracteres);
+
+    artilheiro(caracteres);
+}
+
+void f442(char caracteres[20][80]){
+    linhaDe4(caracteres);
+
+    doisVolantes(caracteres);
+
+    alas(caracteres);
+
+    doisAtacantes(caracteres);
+
+    char times[4][30] = {"Atlético de Madrid de SImeone", "Manchester United de Ferguson", "Brasil de 1994", 
+        "Milan de Ancelotti"};
 
     imprimeMatriz(caracteres);
+
+    printf("Exemplo de time que usou: ");
+    
+    int ex = rand() % 4;
+    //printf("%d\n", ex);
+
+    printf("%s\n", times[ex]);
 
 }
 
@@ -224,9 +309,7 @@ void f433(char caracteres[20][80]){
     
     linhaDe4(caracteres);
 
-    caracteres[10][35] = '(';
-    caracteres[10][36] = '5';
-    caracteres[10][37] = ')';
+    umVolante(caracteres);
 
     caracteres[13][42] = '(';
     caracteres[13][43] = '7';
@@ -236,33 +319,18 @@ void f433(char caracteres[20][80]){
     caracteres[7][43] = '8';
     caracteres[7][44] = ')';
 
-    caracteres[2][18] = '(';
-    caracteres[2][19] = '6';
-    caracteres[2][20] = ')';
+    pontas(caracteres);
 
-    caracteres[17][56] = '(';
-    caracteres[17][57] = '1';
-    caracteres[17][58] = '0';
-    caracteres[17][59] = ')';
-
-    caracteres[10][66] = '(';
-    caracteres[10][67] = '9';
-    caracteres[10][68] = ')';
-
-    caracteres[3][56] = '(';
-    caracteres[3][57] = '1';
-    caracteres[3][58] = '1';
-    caracteres[3][59] = ')';
+    artilheiro(caracteres);
 
     char times[6][30] = {"Napoli de Sarri", "Brasil de 1962", "Liverpool de Klopp", 
         "Holanda de 1970", "Barcelona de Guardiola"};
 
     imprimeMatriz(caracteres);
 
-    printf("Exemplo de time que usou:\n");
+    printf("Exemplo de time que usou: ");
     
     int ex = rand() % 5;
-    //printf("%d\n", ex);
 
     printf("%s\n", times[ex]);
 
@@ -271,8 +339,99 @@ void f433(char caracteres[20][80]){
 void f4231(char caracteres[20][80]){
     linhaDe4(caracteres);
 
+    doisVolantes(caracteres);
+
+    caracteres[10][53] = '(';
+    caracteres[10][54] = '1';
+    caracteres[10][55] = '0';
+    caracteres[10][56] = ')';
+
+    caracteres[5][53] = '(';
+    caracteres[5][54] = '7';
+    caracteres[5][55] = ')';
+
+    caracteres[15][53] = '(';
+    caracteres[15][54] = '1';
+    caracteres[15][55] = '1';
+    caracteres[15][56] = ')';
+
+    artilheiro(caracteres);
+
+    char times[6][30] = {"Arsenal de Arsene Wenger", "Alemanha de 2014", "Corinthians de Tite", 
+        "Espanha de 2010", "Real Madrid dos galácticos"};
+
     imprimeMatriz(caracteres);
+
+    printf("Exemplo de time que usou: ");
+    
+    int ex = rand() % 5;
+
+    printf("%s\n", times[ex]);
 }
+
+void f352(char caracteres[20][80]){
+
+    linhaDe3(caracteres);
+
+    cincoMeias(caracteres);
+
+    doisAtacantes(caracteres);
+
+    char times[6][30] = {"Alemanha de 1996", "Juventus de Conte", "Inter de Milão de Mourinho", 
+        "Tottenham de Pochettino"};
+
+    imprimeMatriz(caracteres);
+
+    printf("Exemplo de time que usou: ");
+    
+    int ex = rand() % 4;
+
+    printf("%s\n", times[ex]);
+}
+
+void f451(char caracteres[20][80]){
+
+    linhaDe4(caracteres);
+    cincoMeias(caracteres);
+    artilheiro(caracteres);
+
+    char times[6][30] = {"", "", "", 
+        ""};
+
+    imprimeMatriz(caracteres);
+
+    printf("Exemplo de time que usou: ");
+    
+    int ex = rand() % 4;
+
+    printf("%s\n", times[ex]);
+}
+
+void f343(char caracteres[20][80]){
+    
+    linhaDe3(caracteres);
+
+    doisVolantes(caracteres);
+
+    alas(caracteres);
+
+    tresAtacantes(caracteres);
+
+    
+    char times[6][30] = {"", "", "", 
+        ""};
+    
+
+    imprimeMatriz(caracteres);
+
+    printf("Exemplo de time que usou: ");
+    
+    int ex = rand() % 4;
+
+    printf("%s\n", times[ex]);
+}
+
+
 
 void campoFutebol(char caracteres[20][80], int n){
     //área
@@ -280,7 +439,7 @@ void campoFutebol(char caracteres[20][80], int n){
         caracteres[6][i] = '-';
         caracteres[14][i] = '-';
     }
-    for(int i = 1; i < 25; i++){
+    for(int i = 1; i < 22; i++){
         caracteres[3][i] = '-';
         caracteres[16][i] = '_';
     }
@@ -288,22 +447,22 @@ void campoFutebol(char caracteres[20][80], int n){
         caracteres[i][11] = '|';
     }
     for(int i = 4; i < 17; i++){
-        caracteres[i][25] = '|';
+        caracteres[i][22] = '|';
     }
 
     //penalti
-    caracteres[10][18] = '*';
+    caracteres[10][17] = '*';
 
     //meia lua
-    caracteres[6][26] = '*';
-    caracteres[7][28] = '*';
-    caracteres[8][29] = '*';
-    caracteres[9][30] = '*';
-    caracteres[10][30] = '*';
-    caracteres[11][30] = '*';
-    caracteres[12][29] = '*';
-    caracteres[13][28] = '*';
-    caracteres[14][26] = '*';
+    //caracteres[6][23] = '*';
+    caracteres[7][23] = '*';
+    caracteres[8][25] = '*';
+    caracteres[9][26] = '*';
+    caracteres[10][26] = '*';
+    caracteres[11][26] = '*';
+    caracteres[12][25] = '*';
+    caracteres[13][23] = '*';
+    //caracteres[14][23] = '*';
 
     //meio campo
     caracteres[5][78] = '*';
@@ -311,7 +470,7 @@ void campoFutebol(char caracteres[20][80], int n){
     caracteres[7][73] = '*';
     caracteres[8][72] = '*';
     caracteres[9][71] = '*';
-    caracteres[10][70] = '*';//
+    caracteres[10][71] = '*';//
     caracteres[11][71] = '*';
     caracteres[12][72] = '*';
     caracteres[13][73] = '*';
@@ -326,7 +485,7 @@ void campoFutebol(char caracteres[20][80], int n){
     caracteres[10][7] = ')';
 
     //int formacao = (a * n + b) % 7;
-    int formacao = 2;
+    int formacao = 5;
 
     switch(formacao){
         case 0:
@@ -342,11 +501,16 @@ void campoFutebol(char caracteres[20][80], int n){
             f4231(caracteres);
             break;
 
+        case 3:
+            f352(caracteres);
+            break;
 
-
-
+        case 4:
+            f451(caracteres);
+            break;
 
         default:
+            f343(caracteres);
             break;
     }
     
