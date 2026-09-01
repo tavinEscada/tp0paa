@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
 
 int leituraNumero(){
     printf("escolha a quantidade de figuras (de 1 a 100): ");
@@ -167,6 +168,112 @@ void aleatorio(char caracteres[20][80], int n){
 
 }
 
+void linhaDe4(char caracteres[20][80]){
+    caracteres[2][18] = '(';
+    caracteres[2][19] = '6';
+    caracteres[2][20] = ')';
+
+    caracteres[7][14] = '(';
+    caracteres[7][15] = '4';
+    caracteres[7][16] = ')';
+
+    caracteres[13][14] = '(';
+    caracteres[13][15] = '3';
+    caracteres[13][16] = ')';
+
+    caracteres[18][18] = '(';
+    caracteres[18][19] = '2';
+    caracteres[18][20] = ')';
+}
+
+void f442(char caracteres[20][80]){
+    linhaDe4(caracteres);
+
+    caracteres[8][41] = '(';
+    caracteres[8][42] = '5';
+    caracteres[8][43] = ')';
+
+    caracteres[12][41] = '(';
+    caracteres[12][42] = '8';
+    caracteres[12][43] = ')';
+
+    caracteres[2][47] = '(';
+    caracteres[2][48] = '7';
+    caracteres[2][49] = ')';
+
+    caracteres[18][47] = '(';
+    caracteres[18][48] = '1';
+    caracteres[18][49] = '1';
+    caracteres[18][50] = ')';
+
+    caracteres[8][65] = '(';
+    caracteres[8][66] = '9';
+    caracteres[8][67] = ')';
+
+    caracteres[12][65] = '(';
+    caracteres[12][66] = '1';
+    caracteres[12][67] = '0';
+    caracteres[12][68] = ')';
+
+
+    imprimeMatriz(caracteres);
+
+}
+
+void f433(char caracteres[20][80]){
+    
+    linhaDe4(caracteres);
+
+    caracteres[10][35] = '(';
+    caracteres[10][36] = '5';
+    caracteres[10][37] = ')';
+
+    caracteres[13][42] = '(';
+    caracteres[13][43] = '7';
+    caracteres[13][44] = ')';
+
+    caracteres[7][42] = '(';
+    caracteres[7][43] = '8';
+    caracteres[7][44] = ')';
+
+    caracteres[2][18] = '(';
+    caracteres[2][19] = '6';
+    caracteres[2][20] = ')';
+
+    caracteres[17][56] = '(';
+    caracteres[17][57] = '1';
+    caracteres[17][58] = '0';
+    caracteres[17][59] = ')';
+
+    caracteres[10][66] = '(';
+    caracteres[10][67] = '9';
+    caracteres[10][68] = ')';
+
+    caracteres[3][56] = '(';
+    caracteres[3][57] = '1';
+    caracteres[3][58] = '1';
+    caracteres[3][59] = ')';
+
+    char times[6][30] = {"Napoli de Sarri", "Brasil de 1962", "Liverpool de Klopp", 
+        "Holanda de 1970", "Barcelona de Guardiola"};
+
+    imprimeMatriz(caracteres);
+
+    printf("Exemplo de time que usou:\n");
+    
+    int ex = rand() % 5;
+    //printf("%d\n", ex);
+
+    printf("%s\n", times[ex]);
+
+}
+
+void f4231(char caracteres[20][80]){
+    linhaDe4(caracteres);
+
+    imprimeMatriz(caracteres);
+}
+
 void campoFutebol(char caracteres[20][80], int n){
     //área
     for(int i = 1; i < 12; i++){
@@ -174,7 +281,7 @@ void campoFutebol(char caracteres[20][80], int n){
         caracteres[14][i] = '-';
     }
     for(int i = 1; i < 25; i++){
-        caracteres[3][i] = '_';
+        caracteres[3][i] = '-';
         caracteres[16][i] = '_';
     }
     for(int i = 7; i < 14; i++){
@@ -211,11 +318,38 @@ void campoFutebol(char caracteres[20][80], int n){
     caracteres[14][75] = '*';
     caracteres[15][78] = '*';
 
+    int a = rand() % 6 + 1;
+    int b = rand() % 7;
+
+    caracteres[10][5] = '(';
+    caracteres[10][6] = '1';
+    caracteres[10][7] = ')';
+
+    //int formacao = (a * n + b) % 7;
+    int formacao = 2;
+
+    switch(formacao){
+        case 0:
+            //formacao 4-4-2
+            f442(caracteres);
+            break;
+
+        case 1:
+            f433(caracteres);
+            break;
+
+        case 2:
+            f4231(caracteres);
+            break;
+
+
+
+
+
+        default:
+            break;
+    }
     
-
-}
-
-void f442(){
 
 }
 
@@ -241,28 +375,6 @@ void especial(char caracteres[20][80]){
     }
 }
 
-void desenhaCampo(char caracteres[20][80], int n){
-    criaMatrizVazia(caracteres);
-
-    if(n <= 20){
-        //basquete
-
-    }
-
-    if(n > 20 && n <= 40){
-        //volei
-
-    }
-    if(n > 40 && n <= 60){
-        //fut americano
-
-    }else{
-        //futebol
-    }
-        
-
-}
-
 int main(){
 
     char caracteres[20][80];
@@ -278,11 +390,15 @@ int main(){
     scanf("%d", &op);
 
     int n;
+
+    srand(time(NULL));
+
     switch(op){
         case 1:
             n = leituraNumero();
 
             for(int i = 0; i < n; i++) asteriscoSimples(caracteres);
+            imprimeMatriz(caracteres);
 
             break;
 
@@ -290,6 +406,7 @@ int main(){
             n = leituraNumero();
 
             for(int i = 0; i < n; i++) soma(caracteres);
+            imprimeMatriz(caracteres);
 
             break;
 
@@ -297,6 +414,7 @@ int main(){
             n = leituraNumero();
 
             for(int i = 0; i < n; i++) x(caracteres);
+            imprimeMatriz(caracteres);
             
             break;
 
@@ -304,6 +422,7 @@ int main(){
             n = leituraNumero();
 
             aleatorio(caracteres, n);
+            imprimeMatriz(caracteres);
             break;
 
         case 5:
@@ -318,7 +437,5 @@ int main(){
             printf("Entrada invalida");
 
     }
-
-    imprimeMatriz(caracteres);
 
 }
