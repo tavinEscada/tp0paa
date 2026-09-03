@@ -5,7 +5,11 @@
 int leituraNumero(){
     printf("escolha o numero (de 1 a 100): ");
     int n;
-    scanf("%d", &n);
+    
+    if (scanf("%d", &n) != 1) {
+        printf("Entrada invalida");
+        exit(1);
+    }
 
     if(n > 100) n = 100;
 
@@ -182,24 +186,24 @@ void linhaDe4(char caracteres[20][80]){
     caracteres[13][15] = '3';
     caracteres[13][16] = ')';
 
-    caracteres[18][20] = '(';
-    caracteres[18][21] = '2';
-    caracteres[18][22] = ')';
+    caracteres[17][20] = '(';
+    caracteres[17][21] = '2';
+    caracteres[17][22] = ')';
 }
 
 void linhaDe3(char caracteres[20][80]){
 
-    caracteres[6][17] = '(';
-    caracteres[6][18] = '3';
-    caracteres[6][19] = ')';
+    caracteres[4][17] = '(';
+    caracteres[4][18] = '3';
+    caracteres[4][19] = ')';
 
     caracteres[10][14] = '(';
     caracteres[10][15] = '2';
     caracteres[10][16] = ')';
 
-    caracteres[14][17] = '(';
-    caracteres[14][18] = '4';
-    caracteres[14][19] = ')';
+    caracteres[15][17] = '(';
+    caracteres[15][18] = '4';
+    caracteres[15][19] = ')';
 }
 
 void doisVolantes(char caracteres[20][80]){
@@ -257,10 +261,10 @@ void doisAtacantes(char caracteres[20][80]){
     caracteres[8][66] = '9';
     caracteres[8][67] = ')';
 
-    caracteres[12][65] = '(';
-    caracteres[12][66] = '1';
-    caracteres[12][67] = '0';
-    caracteres[12][68] = ')';
+    caracteres[12][64] = '(';
+    caracteres[12][65] = '1';
+    caracteres[12][66] = '0';
+    caracteres[12][67] = ')';
 }
 
 void pontas(char caracteres[20][80]){
@@ -425,7 +429,6 @@ void f343(char caracteres[20][80]){
     alas(caracteres);
 
     tresAtacantes(caracteres);
-
     
     char times[6][30] = {"Chelsea de Conte", "Juventus de Allegri", "Borussia Dortmund de Tuchel", 
         "Inglaterra de Southgate"};
@@ -439,7 +442,39 @@ void f343(char caracteres[20][80]){
     printf("%s\n", times[ex]);
 }
 
+void f451Variacao(char caracteres[20][80]) {
+
+    printf("==Variação da formação 4-5-1==\n");
+
+    linhaDe4(caracteres);
+
+    doisVolantes(caracteres);
+
+    alas(caracteres);
+
+    caracteres[10][50] = '(';
+    caracteres[10][51] = '1';
+    caracteres[10][52] = '0';
+    caracteres[10][53] = ')';
+
+    artilheiro(caracteres);
+
+    imprimeMatriz(caracteres);
+
+    char times[3][20] = {"França de 2006", "Alemanha de 2014"};
+
+    printf("Exemplo de time que usou: ");
+    
+    int ex = rand() % 2;
+
+    printf("%s\n", times[ex]);
+
+}
+
 void campoFutebol(char caracteres[20][80], int n){
+
+    criaMatrizVazia(caracteres);
+
     //área
     for(int i = 1; i < 12; i++){
         caracteres[6][i] = '-';
@@ -460,7 +495,6 @@ void campoFutebol(char caracteres[20][80], int n){
     caracteres[10][17] = '*';
 
     //meia lua
-    //caracteres[6][23] = '*';
     caracteres[7][23] = '*';
     caracteres[8][25] = '*';
     caracteres[9][26] = '*';
@@ -468,7 +502,6 @@ void campoFutebol(char caracteres[20][80], int n){
     caracteres[11][26] = '*';
     caracteres[12][25] = '*';
     caracteres[13][23] = '*';
-    //caracteres[14][23] = '*';
 
     //meio campo
     caracteres[5][78] = '*';
@@ -486,12 +519,13 @@ void campoFutebol(char caracteres[20][80], int n){
     int a = rand() % 6 + 1;
     int b = rand() % 7;
 
+    //goleiro
     caracteres[10][5] = '(';
     caracteres[10][6] = '1';
     caracteres[10][7] = ')';
 
-    int formacao = (a * n + b) % 6;
-    //int formacao = 5;
+    int formacao = (a * n + b) % 7;
+    printf("%d", formacao);
 
     switch(formacao){
         case 0:
@@ -515,33 +549,15 @@ void campoFutebol(char caracteres[20][80], int n){
             f451(caracteres);
             break;
 
+        case 5:
+            f451Variacao(caracteres);
+            break;
+
         default:
             f343(caracteres);
             break;
     }
     
-}
-
-
-
-void quadraVolei(char caracteres[20][80], int n){
-    for(int i = 1; i < 19; i++){
-        caracteres[i][52] = '|';
-    }
-
-    imprimeMatriz(caracteres);
-}
-
-void especial(char caracteres[20][80], int n){
-
-    criaMatrizVazia(caracteres);
-
-    if(n <= 40){
-        //volei
-        quadraVolei(caracteres, n);
-    }else{
-        campoFutebol(caracteres, n);
-    }
 }
 
 int main(){
@@ -553,33 +569,48 @@ int main(){
     printf("PROGRAMA GERADOR DE OBRA DE ARTE:\n");
     printf("=================================\n");
     printf("Escolha o tipo de figura:\n1 - Asterisco simpes\n2 - Simbolo de soma com asteriscos\n");
-    printf("3 - Letra x com asteriscos\n4 - Figuras aleatorias\n5 - Obra de arte especial\n");
+    printf("3 - Letra x com asteriscos\n4 - Figuras misturadas\nOutro numero - Obra de arte especial\n");
 
     int op;
-    scanf("%d", &op);
+    
+    if (scanf("%d", &op) != 1) {
+        printf("Entrada invalida");
+        exit(1);
+    }
 
     int n = leituraNumero();
 
+    //gerar numeros diferentes a cada execução
     srand(time(NULL));
 
     switch(op){
         case 1:
 
-            for(int i = 0; i < n; i++) asteriscoSimples(caracteres);
+            for(int i = 0; i < n; i++){
+                asteriscoSimples(caracteres);
+            }
+
             imprimeMatriz(caracteres);
 
             break;
 
         case 2:
 
-            for(int i = 0; i < n; i++) soma(caracteres);
+            for(int i = 0; i < n; i++){
+
+                soma(caracteres);
+
+            }
             imprimeMatriz(caracteres);
 
             break;
 
         case 3:
 
-            for(int i = 0; i < n; i++) x(caracteres);
+            for(int i = 0; i < n; i++){ 
+                x(caracteres);
+            }
+
             imprimeMatriz(caracteres);
             
             break;
@@ -592,8 +623,9 @@ int main(){
 
         default:
 
-            especial(caracteres, n);
+            campoFutebol(caracteres, n);
             break;
+
     }
 
 }
