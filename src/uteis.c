@@ -177,8 +177,6 @@ void aleatorio(char caracteres[20][80], int n){
 
 void campoFutebol(char caracteres[20][80], int n){
 
-    criaMatrizVazia(caracteres);
-
     //área
     for(int i = 1; i < 12; i++){
         caracteres[6][i] = '-';
@@ -220,13 +218,13 @@ void campoFutebol(char caracteres[20][80], int n){
     caracteres[14][75] = '*';
     caracteres[15][78] = '*';
 
-    int a = rand() % 6 + 1;
-    int b = rand() % 7;
-
     //goleiro
     caracteres[10][5] = '(';
     caracteres[10][6] = '1';
     caracteres[10][7] = ')';
+
+    int a = rand() % 6 + 1;
+    int b = rand() % 7;
 
     int formacao = (a * n + b) % 7;
 
